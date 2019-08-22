@@ -10,6 +10,7 @@ The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating 
 ## Requirements
 - **Windows OS and PowerShell** (tested on Windows 10)
 - **local Apache+MySQL/MariaDB+PHP environment** (tested on [XAMPP](https://www.apachefriends.org) and [Laragon](https://laragon.org))
+- **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
 - **WP-CLI** (tested with 2.3.0 version)
 - **ensure that your system can run Wordpress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
 
