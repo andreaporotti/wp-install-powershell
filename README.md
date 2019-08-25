@@ -8,7 +8,8 @@ Using this script you can define a specific Wordpress configuration and create m
 The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating and running a list of commands witch actually install and configure a full Wordpress instance.
 
 ## Requirements
-- **Windows OS and PowerShell** (tested on Windows 10)
+- **Windows OS** (tested on Windows 8.1 and Windows 10)
+- **PowerShell** configured to allow scripts execution (check [Execution Policy](http://go.microsoft.com/fwlink/?LinkID=135170))
 - **local Apache+MySQL/MariaDB+PHP environment** (tested on [XAMPP](https://www.apachefriends.org) and [Laragon](https://laragon.org))
 - **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
 - **WP-CLI** (tested with 2.3.0 version)
