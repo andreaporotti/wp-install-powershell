@@ -4,7 +4,7 @@
 	---------------------------
 
 	Description:	a PowerShell script for quick Wordpress installation on local web server
-	Version:		1.0.1
+	Version:		1.1.0
 	Author:			Andrea Porotti
 	URL:			https://github.com/andreaporotti/wp-install-powershell
 
@@ -115,6 +115,9 @@ foreach ($theme in $wpThemesToInstall) {
 foreach ($theme in $wpThemesToDelete) {
 	$commands += "$php $wpCli theme delete --path=$wpFolderPath $theme"
 }
+
+# delete the 'readme.html' file (it contains the WP version)
+$commands += "del $wpFolderPath\readme.html"
 
 # open the site in the default browser
 $commands += "start $wpUrl"
