@@ -64,6 +64,7 @@ $wpDbUser 				= "root"
 $wpDbPass 				= ""
 $wpDbPrefix				= "$(Get-RandomString -length 3)_"								# a 3 characters long random string
 $wpDbName 				= "$wpFolderName" 												# for the sake of simplicity, the database will have the same name of the site folder
+$wpExtraPhp				= "define( 'AUTOMATIC_UPDATER_DISABLED', true );"				# use this variable to add extra PHP code to the wp-config.php file
 $wpPluginsToInstall		= @("simple-history", "duplicator", "elementor")				# search the plugin page in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/")
 $wpPluginsToDelete		= @("hello")													# same as above
 $wpThemesToInstall		= @("oceanwp")													# search the theme page in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/")
@@ -77,7 +78,7 @@ $commands = @()
 $commands += "$php $wpCli core download --path=$wpFolderPath --locale=$wpLocale --version=$wpVersion"
 
 # create Wordpress configuration file
-$commands += "$php $wpCli config create --path=$wpFolderPath --locale=$wpLocale --dbname=$wpDbName --dbuser=$wpDbUser --dbpass=$wpDbPass --dbhost=$wpDbHost --dbprefix=$wpDbPrefix --extra-php=""define( 'AUTOMATIC_UPDATER_DISABLED', true );"""
+$commands += "$php $wpCli config create --path=$wpFolderPath --locale=$wpLocale --dbname=$wpDbName --dbuser=$wpDbUser --dbpass=$wpDbPass --dbhost=$wpDbHost --dbprefix=$wpDbPrefix --extra-php=""$wpExtraPhp"""
 
 # create the database
 $commands += "$php $wpCli db create --path=$wpFolderPath"
