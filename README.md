@@ -93,7 +93,19 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.1.0] - 2019-09-21
+**Added**
+
+Delete Wordpress `readme.html` file.
+
+### [1.0.1] - 2019-08-25
+**Fixed**
+
+Changed the `$serverRootFolderPath` variable default value which should not have a trailing slash.
+
 ### [1.0.0] - 2019-08-16
+**Added**
+
 Initial script version released.
 
 ## License
