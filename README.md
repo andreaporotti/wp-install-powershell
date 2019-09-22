@@ -93,20 +93,27 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.2.0] - 2019-09-22
+**Added**
+
+- Added the `$wpExtraPhp` variable for the `--extra-php` parameter value.
+- Added the `$wpDisableAutoUpdates` variable to disable the Wordpress auto updates.
+- Added the `$wpDisableFileEdit` variable to disable the Wordpress internal file editor.
+
 ### [1.1.0] - 2019-09-21
 **Added**
 
-Delete Wordpress `readme.html` file.
+- Delete Wordpress `readme.html` file.
 
 ### [1.0.1] - 2019-08-25
 **Fixed**
 
-Changed the `$serverRootFolderPath` variable default value which should not have a trailing slash.
+- Changed the `$serverRootFolderPath` variable default value which should not have a trailing slash.
 
 ### [1.0.0] - 2019-08-16
 **Added**
 
-Initial script version released.
+- Initial script version released.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
