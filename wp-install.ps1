@@ -66,6 +66,7 @@ $wpDbPrefix				= "$(Get-RandomString -length 3)_"								# a 3 characters long r
 $wpDbName 				= "$wpFolderName" 												# for the sake of simplicity, the database will have the same name of the site folder
 $wpExtraPhp				= ""															# use this variable to add extra PHP code to the wp-config.php file
 $wpDisableAutoUpdates	= $true															# set to $true to disable Wordpress auto updates
+$wpDisableFileEdit		= $true															# set to $true to prevent plugins and themes editing from the Wordpress internal file editor
 $wpPluginsToInstall		= @("simple-history", "duplicator", "elementor")				# search the plugin page in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/")
 $wpPluginsToDelete		= @("hello")													# same as above
 $wpThemesToInstall		= @("oceanwp")													# search the theme page in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/")
@@ -75,6 +76,11 @@ $wpThemesToDelete		= @("twentysixteen", "twentyseventeen")							# same as above
 # set extra PHP code to disable Wordpress auto updates
 if($wpDisableAutoUpdates) {
 	$wpExtraPhp += "define( 'AUTOMATIC_UPDATER_DISABLED', true );"
+}
+
+# set extra PHP code to disable Wordpress internal file editor
+if($wpDisableFileEdit) {
+	$wpExtraPhp += "define( 'DISALLOW_FILE_EDIT', true );"
 }
 
 # init commands list
