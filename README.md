@@ -41,6 +41,15 @@ Check the environment settings first and change them to fit your system. The `$p
 
 Then go ahead with the Wordpress settings: here you can insert the basic settings for the installation, but you can also list which plugins and themes to install or remove.
 
+Here is an example of how to list plugin and themes to be installed or removed:
+
+```PowerShell
+$wpPluginsToInstall = @("plugin-1", "plugin-2")
+$wpPluginsToDelete  = @("plugin-3")
+$wpThemesToInstall  = @("theme-1")
+$wpThemesToDelete   = @("theme-2", "theme-3")
+```
+
 ----------
 
 
@@ -94,6 +103,10 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.2.1] - 2019-11-17
+**Changed**
+- Removed from the script configuration the names of plugins and themes to install/remove  to have a more cleaner base script.
+
 ### [1.2.0] - 2019-09-22
 **Added**
 
