@@ -66,10 +66,10 @@ $wpDbPrefix				= "$(Get-RandomString -length 3)_"								# a 3 characters long r
 $wpDbName 				= "$wpFolderName" 												# for the sake of simplicity, the database will have the same name of the site folder
 $wpDisableAutoUpdates	= $true															# set to $true to disable Wordpress auto updates
 $wpDisableFileEdit		= $true															# set to $true to prevent plugins and themes editing from the Wordpress internal file editor
-$wpPluginsToInstall		= @("simple-history", "duplicator", "elementor")				# search the plugin page in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/")
-$wpPluginsToDelete		= @("hello")													# same as above
-$wpThemesToInstall		= @("oceanwp")													# search the theme page in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/")
-$wpThemesToDelete		= @("twentysixteen", "twentyseventeen")							# same as above
+$wpPluginsToInstall		= @()															# search the plugin page in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/")
+$wpPluginsToDelete		= @()															# same as above
+$wpThemesToInstall		= @()															# search the theme page in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/")
+$wpThemesToDelete		= @()															# same as above
 # ====== SCRIPT CONFIGURATION END ===============
 
 # init the string that will contain the extra PHP code to be added to the wp-config.php file
