@@ -4,7 +4,7 @@
 	---------------------------
 
 	Description:	a PowerShell script for quick Wordpress installation on local web server
-	Version:		1.2.0
+	Version:		1.2.1
 	Author:			Andrea Porotti
 	URL:			https://github.com/andreaporotti/wp-install-powershell
 
