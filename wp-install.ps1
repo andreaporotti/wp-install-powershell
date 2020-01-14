@@ -29,7 +29,7 @@ function Get-RandomString {
 	)
 
 	# for more details about this line: https://devblogs.microsoft.com/scripting/generate-random-letters-with-powershell/
-	$randString = -join ((65..90) + (97..122) | Get-Random -Count $length | % {[char]$_})
+	$randString = -join ((97..122) | Get-Random -Count $length | % {[char]$_})
 
 	Write-Output $randString
 }
