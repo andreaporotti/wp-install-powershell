@@ -103,9 +103,13 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.2.2] - 2020-01-14
+**Changed**
+- Modified random string generation function to have only lower case letters in table prefix.
+
 ### [1.2.1] - 2019-11-17
 **Changed**
-- Removed from the script configuration the names of plugins and themes to install/remove  to have a more cleaner base script.
+- Removed from the script configuration the names of plugins and themes to install/remove to have a more cleaner base script.
 
 ### [1.2.0] - 2019-09-22
 **Added**
