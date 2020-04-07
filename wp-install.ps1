@@ -64,26 +64,11 @@ $wpDbUser 				= "root"
 $wpDbPass 				= ""
 $wpDbPrefix				= "$(Get-RandomString -length 3)_"								# a 3 characters long random string
 $wpDbName 				= "$wpFolderName" 												# for the sake of simplicity, the database will have the same name of the site folder
-$wpDisableAutoUpdates	= $true															# set to $true to disable Wordpress auto updates
-$wpDisableFileEdit		= $true															# set to $true to prevent plugins and themes editing from the Wordpress internal file editor
 $wpPluginsToInstall		= @()															# search the plugin page in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/")
 $wpPluginsToDelete		= @()															# same as above
 $wpThemesToInstall		= @()															# search the theme page in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/")
 $wpThemesToDelete		= @()															# same as above
 # ====== SCRIPT CONFIGURATION END ===============
-
-# init the string that will contain the extra PHP code to be added to the wp-config.php file
-$wpExtraPhp	= ""
-
-# set extra PHP code to disable Wordpress auto updates
-if($wpDisableAutoUpdates) {
-	$wpExtraPhp += "define( 'AUTOMATIC_UPDATER_DISABLED', true );"
-}
-
-# set extra PHP code to disable Wordpress internal file editor
-if($wpDisableFileEdit) {
-	$wpExtraPhp += "define( 'DISALLOW_FILE_EDIT', true );"
-}
 
 # init commands list
 $commands = @()
@@ -92,7 +77,7 @@ $commands = @()
 $commands += "$php $wpCli core download --path=$wpFolderPath --locale=$wpLocale --version=$wpVersion"
 
 # create Wordpress configuration file
-$commands += "$php $wpCli config create --path=$wpFolderPath --locale=$wpLocale --dbname=$wpDbName --dbuser=$wpDbUser --dbpass=$wpDbPass --dbhost=$wpDbHost --dbprefix=$wpDbPrefix --extra-php=""$wpExtraPhp"""
+$commands += "$php $wpCli config create --path=$wpFolderPath --locale=$wpLocale --dbname=$wpDbName --dbuser=$wpDbUser --dbpass=$wpDbPass --dbhost=$wpDbHost --dbprefix=$wpDbPrefix"
 
 # create the database
 $commands += "$php $wpCli db create --path=$wpFolderPath"

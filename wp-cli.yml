@@ -1,2 +1,9 @@
 apache_modules:
     - mod_rewrite
+
+# Subcommand defaults
+config create:
+    extra-php: |
+        define( 'WP_POST_REVISIONS', 5 );
+        define( 'AUTOMATIC_UPDATER_DISABLED', true );
+        define( 'DISALLOW_FILE_EDIT', true );
