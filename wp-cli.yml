@@ -1,7 +1,9 @@
+# Enable the Apache rewrite module needed by the WP-CLI rewrite command
 apache_modules:
     - mod_rewrite
 
-# Subcommand defaults
+# ====== COMMANDS CONFIGURATION ======
+# Add extra PHP code to the wp-config.php file
 config create:
     extra-php: |
         define( 'WP_POST_REVISIONS', 5 );
