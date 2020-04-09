@@ -52,7 +52,6 @@ $wpThemesToDelete   = @("theme-2", "theme-3")
 
 ----------
 
-
 For further Wordpress customization, please have a look to the code between these two lines:
 
 ```PowerShell
@@ -72,6 +71,20 @@ $commands += "$php $wpCli [command] --path=$wpFolderPath [command_parameters]"
 ```
 
 Just replace `[command]` and `[command_parameters]`.
+
+----------
+
+Additional WP-CLI settings are available inside the `wp-cli.yml`.
+
+You can add or change existing settings below this line:
+
+```YML
+# ====== COMMANDS CONFIGURATION ======
+```
+
+Currently, you can use this file to add PHP code to the `wp-config.php` file, using the `extra-php` parameter of the `config create` command.
+
+For more details about the WP-CLI configuration file, please take a look at [this page](https://make.wordpress.org/cli/handbook/config/).
 
 ## Usage
 **Parameters:**
