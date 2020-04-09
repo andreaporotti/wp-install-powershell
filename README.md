@@ -116,6 +116,10 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.3.0] - 2020-04-09
+**Changed**
+- Moved the extra-php setting from the script to the YML configuration file. The code can now be added in a easier way and the output will be multiline.
+
 ### [1.2.2] - 2020-01-14
 **Changed**
 - Modified random string generation function to have only lower case letters in table prefix.
