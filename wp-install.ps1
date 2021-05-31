@@ -116,6 +116,13 @@ foreach ($theme in $wpThemesToDelete) {
 	$commands += "$php $wpCli theme delete --path=$wpFolderPath $theme"
 }
 
+# update core, plugins and themes languages 
+$commands += "$php $wpCli language core update --path=$wpFolderPath"
+$commands += "$php $wpCli language plugin install --all $wpLocale --path=$wpFolderPath"
+$commands += "$php $wpCli language plugin update --all --path=$wpFolderPath"
+$commands += "$php $wpCli language theme install --all $wpLocale --path=$wpFolderPath"
+$commands += "$php $wpCli language theme update --all --path=$wpFolderPath"
+
 # delete the 'readme.html' file (it contains the WP version)
 $commands += "del $wpFolderPath\readme.html"
 
