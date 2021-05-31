@@ -6,6 +6,17 @@ apache_modules:
 # Add extra PHP code to the wp-config.php file
 config create:
     extra-php: |
+        // Set max revisions number.
         define( 'WP_POST_REVISIONS', 5 );
+
+        // Disable all automatic updates.
         define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+        // Disable file editing from the dashboard.
         define( 'DISALLOW_FILE_EDIT', true );
+
+        // Enable WordPress debug.
+        define( 'WP_DEBUG', true );
+        define( 'WP_DEBUG_LOG', true );
+        define( 'WP_DEBUG_DISPLAY', true );
+        define( 'SCRIPT_DEBUG', true );
