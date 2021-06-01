@@ -64,10 +64,6 @@ $wpDbUser 				= "root"
 $wpDbPass 				= ""
 $wpDbPrefix				= "$(Get-RandomString -length 3)_"								# a 3 characters long random string
 $wpDbName 				= "$wpFolderName" 												# for the sake of simplicity, the database will have the same name of the site folder
-$wpPluginsToInstall		= @()															# search the plugin page in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/")
-$wpPluginsToDelete		= @()															# same as above
-$wpThemesToInstall		= @()															# search the theme page in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/")
-$wpThemesToDelete		= @()															# same as above
 # ====== SCRIPT CONFIGURATION END ===============
 
 # init commands list
@@ -97,24 +93,16 @@ $commands += "$php $wpCli rewrite flush --path=$wpFolderPath --hard"
 # ====== OPTIONAL WORDPRESS SETTINGS END ========
 
 # install and activate plugins
-foreach ($plugin in $wpPluginsToInstall) {
-	$commands += "$php $wpCli plugin install --path=$wpFolderPath $plugin --activate"
-}
+$commands += "$php $wpCli plugin install --path=$wpFolderPath --activate"
 
 # delete plugins
-foreach ($plugin in $wpPluginsToDelete) {
-	$commands += "$php $wpCli plugin delete --path=$wpFolderPath $plugin"
-}
+$commands += "$php $wpCli plugin delete --path=$wpFolderPath"
 
 # install and activate themes
-foreach ($theme in $wpThemesToInstall) {
-	$commands += "$php $wpCli theme install --path=$wpFolderPath $theme --activate"
-}
+$commands += "$php $wpCli theme install --path=$wpFolderPath --activate"
 
 # delete themes
-foreach ($theme in $wpThemesToDelete) {
-	$commands += "$php $wpCli theme delete --path=$wpFolderPath $theme"
-}
+$commands += "$php $wpCli theme delete --path=$wpFolderPath"
 
 # update core, plugins and themes languages 
 $commands += "$php $wpCli language core update --path=$wpFolderPath"

@@ -1,9 +1,9 @@
-# Enable the Apache rewrite module needed by the WP-CLI rewrite command
+# Enable the Apache rewrite module needed by the WP-CLI rewrite command.
 apache_modules:
     - mod_rewrite
 
 # ====== COMMANDS CONFIGURATION ======
-# Add extra PHP code to the wp-config.php file
+# Add extra PHP code to the wp-config.php file.
 config create:
     extra-php: |
         // Set max revisions number.
@@ -20,3 +20,28 @@ config create:
         define( 'WP_DEBUG_LOG', true );
         define( 'WP_DEBUG_DISPLAY', true );
         define( 'SCRIPT_DEBUG', true );
+
+# The plugins that will be installed and activated.
+# Search the plugins in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/").
+# Please note: an empty list will rise a warning during wp-cli execution. This is not a problem for the WordPress setup.
+plugin install:
+    # plugin-name-1
+    # plugin-name-2
+
+# The plugins that will be deleted.
+# Please note: an empty list will rise a warning during wp-cli execution. This is not a problem for the WordPress setup.
+plugin delete:
+    hello
+    akismet
+
+# The theme that will be installed and activated.
+# Search the theme in the WP Themes Directory and look for the name at the end of the url (after "https://wordpress.org/themes/").
+# Please note: an empty list will rise a warning during wp-cli execution. This is not a problem for the WordPress setup.
+theme install:
+    # theme-name
+
+# The themes that will be deleted.
+# Please note: an empty list will rise a warning during wp-cli execution. This is not a problem for the WordPress setup.
+theme delete:
+    twentynineteen
+    twentytwenty
