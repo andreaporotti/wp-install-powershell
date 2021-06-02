@@ -1,30 +1,30 @@
 # wp-install (PowerShell)
 
 ## Description
-A PowerShell script for quick [Wordpress](https://wordpress.org/) installation on local web servers.
+A PowerShell script for quick [WordPress](https://wordpress.org/) installation on local web servers.
 
-Using this script you can define a specific Wordpress configuration and create multiple websites with the same settings, skipping boring and time consuming manual tasks (Wordpress download, setup process, theme and plugins installation...).
+Using this script you can define a specific WordPress configuration and create multiple websites with the same settings, skipping boring and time consuming manual tasks (WordPress download, setup process, theme and plugins installation...).
 
-The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating and running a list of commands witch actually install and configure a full Wordpress instance.
+The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating and running a list of commands witch actually install and configure a full WordPress instance.
 
 ## Requirements
-- **Windows OS** (tested on Windows 8.1 and Windows 10)
+- **Windows OS** (tested on Windows 10)
 - **PowerShell** configured to allow scripts execution (check [Execution Policy](http://go.microsoft.com/fwlink/?LinkID=135170))
-- **local Apache+MySQL/MariaDB+PHP environment** (tested on [XAMPP](https://www.apachefriends.org) and [Laragon](https://laragon.org))
+- **local Apache+MySQL/MariaDB+PHP environment** (tested on [Laragon](https://laragon.org))
 - **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
-- **Wordpress** (tested up to version 5.7)
+- **WordPress** (tested up to version 5.7)
 - **WP-CLI** (tested up to version 2.5.0)
-- **ensure that your system can run Wordpress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
+- **ensure that your system can run WordPress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
 
 ## Installation
-- clone or download and extract this repository in a folder.
+- clone or download this repository in a folder.
 - download latest WP-CLI version from https://wp-cli.org/#installing and put the `wp-cli.phar` file into the script folder.
 - ensure the folder contains the following files:
   - `wp-cli.phar`
   - `wp-cli.yml`
   - `wp-install.ps1`
 - open the `wp-install.ps1` file with a text editor (Visual Studio Code, Notepad++, PowerShell ISE...).
-- carefully read all comments and change the script configuration values to fit your local environment (please check the [Configuration](#configuration) section of this file).
+- carefully read all comments and change the script configuration values to fit your local environment (please check the following [Configuration](#configuration) section).
 
 ## Configuration
 Before running the script for the first time, please check the values between these two lines:
@@ -39,20 +39,11 @@ Most variable names should be self-explanatory, however some of them have a comm
 
 Check the environment settings first and change them to fit your system. The `$php` variable allows you to select a specific PHP version in case you have multiple versions installed.
 
-Then go ahead with the Wordpress settings: here you can insert the basic settings for the installation, but you can also list which plugins and themes to install or remove.
-
-Here is an example of how to list plugin and themes to be installed or removed:
-
-```PowerShell
-$wpPluginsToInstall = @("plugin-1", "plugin-2")
-$wpPluginsToDelete  = @("plugin-3")
-$wpThemesToInstall  = @("theme-1")
-$wpThemesToDelete   = @("theme-2", "theme-3")
-```
+Then go ahead with the WordPress settings, where you can define the basic setup options.
 
 ----------
 
-For further Wordpress customization, please have a look to the code between these two lines:
+For further WordPress customization, please have a look to the code between these two lines:
 
 ```PowerShell
 # ====== OPTIONAL WORDPRESS SETTINGS START ======
@@ -82,7 +73,14 @@ You can add or change existing settings below this line:
 # ====== COMMANDS CONFIGURATION ======
 ```
 
-Currently, you can use this file to add PHP code to the `wp-config.php` file, using the `extra-php` parameter of the `config create` command.
+Currently this file allows to configure:
+-  custom PHP code that will be added to the `wp-config.php` file, using the `extra-php` parameter of the `config create` command.
+-  a list of plugins to be installed
+-  a list of plugins to be deleted
+-  the theme to be deleted
+-  a list of themes to be deleted
+
+Please check the comments in the file to know more about the existing configuration.
 
 For more details about the WP-CLI configuration file, please take a look at [this page](https://make.wordpress.org/cli/handbook/config/).
 
@@ -90,29 +88,29 @@ For more details about the WP-CLI configuration file, please take a look at [thi
 **Parameters:**
 - `wpFolderName` (mandatory): insert the name of the folder in which the site will be installed (this folder will be created inside the web server root).
 - `wpTitle` (mandatory): insert the title of the site.
-- `verboseMode` (optional): prints out the commands while they are run.
+- `verboseMode` (optional): prints out the commands during the script execution.
 - `testMode` (optional): if enabled, the script DO NOT runs the commands; useful together with `verboseMode` to just have a preview of the commands that would be run, useless otherwise.
 
 To run `wp-install` open a PowerShell window, move to the script folder and run the script passing values for mandatory parameters.
 
 **Examples:**
 
-Create a new Wordpress instance:
+Create a new WordPress instance:
 
 ```PowerShell
-.\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing Wordpress"
+.\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing WordPress"
 ```
 
-Create a new Wordpress instance and print the commands while being executed:
+Create a new WordPress instance and print the commands while being executed:
 
 ```PowerShell
-.\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing Wordpress" -verboseMode
+.\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing WordPress" -verboseMode
 ```
 
 Only print the list of commands that would be executed by the script:
 
 ```PowerShell
-.\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing Wordpress" -verboseMode -testMode
+.\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing WordPress" -verboseMode -testMode
 ```
 
 ## Changelog
@@ -132,13 +130,13 @@ Only print the list of commands that would be executed by the script:
 **Added**
 
 - Added the `$wpExtraPhp` variable for the `--extra-php` parameter value.
-- Added the `$wpDisableAutoUpdates` variable to disable the Wordpress auto updates.
-- Added the `$wpDisableFileEdit` variable to disable the Wordpress internal file editor.
+- Added the `$wpDisableAutoUpdates` variable to disable the WordPress auto updates.
+- Added the `$wpDisableFileEdit` variable to disable the WordPress internal file editor.
 
 ### [1.1.0] - 2019-09-21
 **Added**
 
-- Delete Wordpress `readme.html` file.
+- Delete WordPress `readme.html` file.
 
 ### [1.0.1] - 2019-08-25
 **Fixed**
