@@ -75,10 +75,10 @@ You can add or change existing settings below this line:
 
 Currently this file allows to configure:
 -  custom PHP code that will be added to the `wp-config.php` file, using the `extra-php` parameter of the `config create` command.
--  a list of plugins to be installed
--  a list of plugins to be deleted
--  the theme to be deleted
--  a list of themes to be deleted
+-  a list of plugins to be installed.
+-  a list of plugins to be deleted.
+-  the theme to be installed.
+-  a list of themes to be deleted.
 
 Please check the comments in the file to know more about the existing configuration.
 
