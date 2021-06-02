@@ -114,6 +114,15 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.4.0] - 2021-06-02
+**Added**
+- Added commands to update core, plugins and themes language files.
+- Added PHP code to enable WordPress debug in the `wp-cli.yml` file.
+- Added comments to the PHP code in the `wp-cli.yml` file.
+
+**Changed**
+- Moved the lists of plugins and themes to be installed/deleted from the script configuration variables to the `wp-cli.yml` file. Please check the comments in the file for more details.
+
 ### [1.3.0] - 2020-04-09
 **Changed**
 - Moved the extra-php setting from the script to the YML configuration file. The code can now be added in a easier way and the output will be multiline.
