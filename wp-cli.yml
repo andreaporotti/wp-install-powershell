@@ -42,5 +42,5 @@ theme install:
 # The themes that will be deleted.
 # Please note: an empty list will rise a warning during wp-cli execution. This is not a problem for the WordPress setup.
 theme delete:
-    twentynineteen
     twentytwenty
+    twentytwentyone
