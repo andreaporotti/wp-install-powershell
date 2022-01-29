@@ -91,6 +91,8 @@ $commands += "$php $wpCli rewrite structure --path=$wpFolderPath /%year%/%monthn
 $commands += "$php $wpCli option update --path=$wpFolderPath blogdescription """""
 #	prevent search engines to index the site
 $commands += "$php $wpCli option update --path=$wpFolderPath blog_public 0"
+#	disable avatars in comments
+$commands += "$php $wpCli option update --path=$wpFolderPath show_avatars 0"
 #	permalink refresh
 $commands += "$php $wpCli rewrite flush --path=$wpFolderPath --hard"
 # ====== OPTIONAL WORDPRESS SETTINGS END ========
