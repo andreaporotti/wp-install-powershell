@@ -97,6 +97,11 @@ $commands += "$php $wpCli option update --path=$wpFolderPath show_avatars 0"
 $commands += "$php $wpCli rewrite flush --path=$wpFolderPath --hard"
 # ====== OPTIONAL WORDPRESS SETTINGS END ========
 
+# ====== OPTIONAL ADMIN SETTINGS START ======
+#	disable welcome screen
+$commands += "$php $wpCli user meta update 1 show_welcome_panel 0 --path=$wpFolderPath"
+# ====== OPTIONAL ADMIN SETTINGS END ========
+
 # install and activate plugins
 $commands += "$php $wpCli plugin install --path=$wpFolderPath --activate"
 
