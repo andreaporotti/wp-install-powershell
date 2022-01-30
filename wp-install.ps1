@@ -93,6 +93,8 @@ $commands += "$php $wpCli option update --path=$wpFolderPath blogdescription """
 $commands += "$php $wpCli option update --path=$wpFolderPath blog_public 0"
 #	disable avatars in comments
 $commands += "$php $wpCli option update --path=$wpFolderPath show_avatars 0"
+#	use excerpt when adding posts to the feed
+$commands += "$php $wpCli option update --path=$wpFolderPath rss_use_excerpt 1"
 #	permalink refresh
 $commands += "$php $wpCli rewrite flush --path=$wpFolderPath --hard"
 # ====== OPTIONAL WORDPRESS SETTINGS END ========
