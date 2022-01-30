@@ -15,7 +15,7 @@ config create:
         // Disable file editing from the dashboard.
         define( 'DISALLOW_FILE_EDIT', true );
 
-        // Enable WordPress debug.
+        // Configure WordPress debug.
         define( 'WP_DEBUG_LOG', true );
         define( 'WP_DEBUG_DISPLAY', true );
         define( 'SCRIPT_DEBUG', true );
