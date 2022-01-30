@@ -91,6 +91,10 @@ $commands += "$php $wpCli rewrite structure --path=$wpFolderPath /%year%/%monthn
 $commands += "$php $wpCli option update --path=$wpFolderPath blogdescription """""
 #	prevent search engines to index the site
 $commands += "$php $wpCli option update --path=$wpFolderPath blog_public 0"
+#	disable comments for new posts
+$commands += "$php $wpCli option update --path=$wpFolderPath default_comment_status """""
+#	enable comments moderation
+$commands += "$php $wpCli option update --path=$wpFolderPath comment_moderation 1"
 #	disable avatars in comments
 $commands += "$php $wpCli option update --path=$wpFolderPath show_avatars 0"
 #	use excerpt when adding posts to the feed
