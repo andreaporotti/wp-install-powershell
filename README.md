@@ -12,8 +12,8 @@ The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating 
 - **PowerShell** configured to allow scripts execution (check [Execution Policy](http://go.microsoft.com/fwlink/?LinkID=135170))
 - **local Apache+MySQL/MariaDB+PHP environment** (tested on [Laragon](https://laragon.org))
 - **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
-- **WordPress** (tested up to version 5.8)
-- **WP-CLI** (tested up to version 2.5.0)
+- **WordPress** (tested up to version 5.9)
+- **WP-CLI** (tested up to version 2.6.0)
 - **ensure that your system can run WordPress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
 
 ## Installation
@@ -43,12 +43,18 @@ Then go ahead with the WordPress settings, where you can define the basic setup 
 
 ----------
 
-For further WordPress customization, please have a look to the code between these two lines:
+For further WordPress customization, please have a look to the code between these lines:
 
 ```PowerShell
 # ====== OPTIONAL WORDPRESS SETTINGS START ======
 ...
 # ====== OPTIONAL WORDPRESS SETTINGS END ========
+```
+
+```PowerShell
+# ====== OPTIONAL ADMIN SETTINGS START ======
+...
+# ====== OPTIONAL ADMIN SETTINGS END ========
 ```
 
 This part is different from the previous one as it contains full WP-CLI commands, not just values.
@@ -114,6 +120,20 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.5.0] - 2022-01-30
+This version fixes issues with WordPress 5.9 and WP-CLI 2.6.0.
+
+**Added**
+- Added command to disable comments.
+- Added command to enable comments moderation.
+- Added command to disable avatars.
+- Added command to use posts excerpt in the feed.
+- Added command to disable the welcome screen on the admin dashboard.
+
+**Changed**
+- Modified the list of themes to be deleted according to the WP 5.9 default themes.
+- Modified the way the WP_DEBUG is enabled, since WP-CLI 2.6.0 does not override the default WP_DEBUG definition.
+
 ### [1.4.0] - 2021-06-02
 **Added**
 - Added commands to update core, plugins and themes language files.
