@@ -42,7 +42,7 @@ function Get-DebugTimestamp {
 # ====== SCRIPT CONFIGURATION START =============
 #	environment settings
 #	(change the following values to match your local web server)
-$php 					= "D:\laragon\bin\php\php-7.3.7-nts-Win32-VC15-x64\php.exe" 	# path of the PHP executable
+$php 					= "D:\laragon\bin\php\php-7.4.29-nts-Win32-VC15-x64\php.exe" 	# path of the PHP executable
 $serverRootFolderPath 	= "D:\laragon\www" 												# the folder in which the script will create the site folder (no trailing slash)
 $baseUrl 				= "http://localhost" 											# replace localhost with your local IP if you want to view the site from other devices on your network (eg. smartphones)
 
