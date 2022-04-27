@@ -50,7 +50,7 @@ $baseUrl 				= "http://localhost" 											# replace localhost with your local
 #	(the following values should not be changed)
 $wpCli 					= ".\wp-cli.phar" 												# wp-cli should be in the script folder
 $wpFolderPath 			= "$serverRootFolderPath\$wpFolderName"							# full site folder path
-$wpUrl	 				= "$baseUrl/$wpFolderName"										# full site url
+$wpUrl					= "$baseUrl/$wpFolderName".Replace("\", "/")					# full site url
 
 #	wordpress settings
 #	(change the following values to customize the Wordpress installation)
@@ -82,7 +82,7 @@ $commands += "$php $wpCli config set WP_DEBUG true --raw --path=$wpFolderPath"
 $commands += "$php $wpCli db create --path=$wpFolderPath"
 
 # run Wordpress installation
-$commands += "$php $wpCli core install --path=$wpFolderPath --url=$wpUrl --title=""$wpTitle"" --admin_user=$wpAdminUser --admin_password=$wpAdminPass --admin_email=$wpAdminEmail"
+$commands += "$php $wpCli core install --path=$wpFolderPath --url=""$wpUrl"" --title=""$wpTitle"" --admin_user=$wpAdminUser --admin_password=$wpAdminPass --admin_email=$wpAdminEmail"
 
 # ====== OPTIONAL WORDPRESS SETTINGS START ======
 #	permalink format (https://wordpress.org/support/article/using-permalinks/)
