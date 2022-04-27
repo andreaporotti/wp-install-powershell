@@ -49,6 +49,7 @@ $baseUrl 				= "http://localhost" 											# replace localhost with your local
 #	fixed environment settings
 #	(the following values should not be changed)
 $wpCli 					= ".\wp-cli.phar" 												# wp-cli should be in the script folder
+$wpFolderName			= $wpFolderName.Replace(".", "_")								# remove dots from folder name, which may cause rewrite rules issues
 $wpFolderPath 			= "$serverRootFolderPath\$wpFolderName"							# full site folder path
 $wpUrl					= "$baseUrl/$wpFolderName".Replace("\", "/")					# full site url
 
