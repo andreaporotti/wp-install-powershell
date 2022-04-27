@@ -18,6 +18,7 @@
 param (
 	[Parameter(Mandatory=$true)][string]$wpFolderName,	# the site folder name (mandatory)
 	[Parameter(Mandatory=$true)][string]$wpTitle,		# the site title (mandatory)
+	[string]$wpUrl,										# the site url (leave empty to set default url)
 	[switch]$verboseMode = $false,						# enable this to view the commands executed by the script (optional)
 	[switch]$testMode = $false							# enable this to only view the command that the script would run (optional)
 )
@@ -51,7 +52,9 @@ $baseUrl 				= "http://localhost" 											# replace localhost with your local
 $wpCli 					= ".\wp-cli.phar" 												# wp-cli should be in the script folder
 $wpFolderName			= $wpFolderName.Replace(".", "_")								# remove dots from folder name, which may cause rewrite rules issues
 $wpFolderPath 			= "$serverRootFolderPath\$wpFolderName"							# full site folder path
-$wpUrl					= "$baseUrl/$wpFolderName".Replace("\", "/")					# full site url
+if ( [string]::IsNullOrEmpty( $wpUrl ) ) {
+	$wpUrl				= "$baseUrl/$wpFolderName".Replace("\", "/")					# full site url
+}
 
 #	wordpress settings
 #	(change the following values to customize the Wordpress installation)
