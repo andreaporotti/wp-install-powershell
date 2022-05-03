@@ -134,8 +134,11 @@ $commands += "$php $wpCli language theme update --all --path=$wpFolderPath"
 # delete the 'readme.html' file (it contains the WP version)
 $commands += "del $wpFolderPath\readme.html"
 
-# open the site in the default browser
+# open the site frontend in the default browser
 $commands += "start $wpUrl"
+
+# open the site backend in the default browser
+$commands += "start $wpUrl/admin"
 
 ""
 Write-Host "($(Get-DebugTimestamp)) Starting Wordpress setup..." -ForegroundColor Green
