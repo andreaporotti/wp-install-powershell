@@ -60,7 +60,7 @@ if ( [string]::IsNullOrEmpty( $wpUrl ) ) {
 #	(change the following values to customize the Wordpress installation)
 $wpVersion 				= "latest"														# to install a specific version, please look for the number in this page: https://wordpress.org/download/releases/
 $wpLocale 				= "it_IT"														# full list of available languages: https://make.wordpress.org/polyglots/teams/
-$wpAdminUser 			= "admin"
+$wpAdminUser 			= "site.manager"
 $wpAdminPass 			= "admin"
 $wpAdminEmail 			= "admin@test.com"
 $wpDbHost 				= "127.0.0.1"
