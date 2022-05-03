@@ -120,6 +120,21 @@ Only print the list of commands that would be executed by the script:
 ```
 
 ## Changelog
+### [1.6.0] - 2022-05-xx
+**Added**
+- Added optional parameter to pass a custom site URL. If not specified, "localhost" will be used.
+- Generate a random password for the admin user. The password will be saved to a file in the site folder and also displaed to the terminal. **Please note:** currently the password is not really safe, so change it if you deploy the site.
+- Added command to open the site backend at the end of the setup.
+
+**Changed**
+- Changed the PHP version used by the script. This is a default value, please modify it according to your environment.
+- Modified the default admin username to prevent having an "admin" user, which is not good if the site is going to be deployed.
+- Updated the script documentation.
+
+**Fixed**
+- Fixed default site url (localhost) when WordPress is installed in a subfolder.
+- Removed dots from the folder name, which may cause rewrite rules issues.
+
 ### [1.5.0] - 2022-01-30
 This version fixes issues with WordPress 5.9 and WP-CLI 2.6.0.
 
