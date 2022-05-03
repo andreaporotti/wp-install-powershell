@@ -61,7 +61,7 @@ if ( [string]::IsNullOrEmpty( $wpUrl ) ) {
 $wpVersion 				= "latest"														# to install a specific version, please look for the number in this page: https://wordpress.org/download/releases/
 $wpLocale 				= "it_IT"														# full list of available languages: https://make.wordpress.org/polyglots/teams/
 $wpAdminUser 			= "site.manager"
-$wpAdminPass 			= "admin"
+$wpAdminPass 			= "$(Get-RandomString -length 24)"
 $wpAdminEmail 			= "admin@test.com"
 $wpDbHost 				= "127.0.0.1"
 $wpDbUser 				= "root"
@@ -156,5 +156,18 @@ foreach ($command in $commands) {
     ""
 }
 
+# save generated admin password to a file
+$passwordFileName = "_$(Get-RandomString -length 16).txt"
+$passwordFilePath = "$wpFolderPath\$passwordFileName"
+"$wpAdminPass" | Set-Content -Path "$passwordFilePath"
+
+# display admin login details
+Write-Host "****************************************" -ForegroundColor Magenta
+Write-Host "Admin username: $wpAdminUser" -ForegroundColor Magenta
+Write-Host "Admin password: $wpAdminPass" -ForegroundColor Magenta
+Write-Host "The password has been saved to this file: $passwordFilePath" -ForegroundColor Magenta
+Write-Host "****************************************" -ForegroundColor Magenta
+
+""
 Write-Host "($(Get-DebugTimestamp)) Wordpress setup complete!" -ForegroundColor Green
 ""
