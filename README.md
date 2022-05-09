@@ -91,20 +91,29 @@ Please check the comments in the file to know more about the existing configurat
 For more details about the WP-CLI configuration file, please take a look at [this page](https://make.wordpress.org/cli/handbook/config/).
 
 ## Usage
-**Parameters:**
-- `wpFolderName` (mandatory): insert the name of the folder in which the site will be installed (this folder will be created inside the web server root).
-- `wpTitle` (mandatory): insert the title of the site.
-- `verboseMode` (optional): prints out the commands during the script execution.
-- `testMode` (optional): if enabled, the script DO NOT runs the commands; useful together with `verboseMode` to just have a preview of the commands that would be run, useless otherwise.
 
-To run `wp-install` open a PowerShell window, move to the script folder and run the script passing values for mandatory parameters.
+To run `wp-install` open a PowerShell window, move to the script folder and run the script using the following parameters:
+
+| Parameter    | Mandatory | Description |
+|--------------|:---------:|-------------|
+|`wpFolderName`| Yes       |The name of the folder in which the site will be installed. The name can contain subfolders. The site folder will be created inside the web server root.|
+|`wpTitle`     | Yes       |The site title.|
+|`wpUrl`       | No        |The site url. Extra configuration on the webserver is required for a custom url. If missing, the `$baseUrl` variable will be used (`http://localhost/...` by default).|
+|`verboseMode` | No        |Print out the commands during the script execution.|
+|`testMode`    | No        |Prevent commands to be run. May be useful together with `verboseMode` to preview the full script execution.|
 
 **Examples:**
 
-Create a new WordPress instance:
+Create a new WordPress instance with default url:
 
 ```PowerShell
 .\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing WordPress"
+```
+
+Create a new WordPress instance in a subfolder and set a custom url:
+
+```PowerShell
+.\wp-install.ps1 -wpFolderName "tests\wp_test_site" -wpTitle "Testing WordPress" -wpUrl "http://test-site.local"
 ```
 
 Create a new WordPress instance and print the commands while being executed:
@@ -113,16 +122,16 @@ Create a new WordPress instance and print the commands while being executed:
 .\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing WordPress" -verboseMode
 ```
 
-Only print the list of commands that would be executed by the script:
+Run script preventing command execution:
 
 ```PowerShell
 .\wp-install.ps1 -wpFolderName "wp_test_site" -wpTitle "Testing WordPress" -verboseMode -testMode
 ```
 
 ## Changelog
-### [1.6.0] - 2022-05-xx
+### [1.6.0] - 2022-05-09
 **Added**
-- Added optional parameter to pass a custom site URL. If not specified, "localhost" will be used.
+- Added optional parameter to pass a custom site URL. If not specified, "localhost" will be used. **Please note:** extra configuration on the webserver is required for a custom url.
 - Generate a random password for the admin user. The password will be saved to a file in the site folder and also displaed to the terminal. **Please note:** currently the password is not really safe, so change it if you deploy the site.
 - Added command to open the site backend at the end of the setup.
 
