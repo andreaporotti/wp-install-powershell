@@ -12,7 +12,7 @@ The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating 
 - **PowerShell** configured to allow scripts execution (check [Execution Policy](http://go.microsoft.com/fwlink/?LinkID=135170))
 - **local Apache+MySQL/MariaDB+PHP environment** (tested on [Laragon](https://laragon.org))
 - **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
-- **WordPress** (tested up to version 5.9)
+- **WordPress** (tested up to version 6.0)
 - **WP-CLI** (tested up to version 2.6.0)
 - **ensure that your system can run WordPress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
 
