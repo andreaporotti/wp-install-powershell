@@ -79,9 +79,6 @@ $commands += "$php $wpCli core download --path=$wpFolderPath --locale=$wpLocale 
 # create Wordpress configuration file
 $commands += "$php $wpCli config create --path=$wpFolderPath --locale=$wpLocale --dbname=$wpDbName --dbuser=$wpDbUser --dbpass=$wpDbPass --dbhost=$wpDbHost --dbprefix=$wpDbPrefix"
 
-# enable Wordpress debug
-$commands += "$php $wpCli config set WP_DEBUG true --raw --path=$wpFolderPath"
-
 # create the database
 $commands += "$php $wpCli db create --path=$wpFolderPath"
 
