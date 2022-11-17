@@ -91,8 +91,6 @@ $commands += "$php $wpCli core install --path=$wpFolderPath --url=""$wpUrl"" --t
 # ====== OPTIONAL WORDPRESS SETTINGS START ======
 #	permalink format (https://wordpress.org/support/article/using-permalinks/)
 $commands += "$php $wpCli rewrite structure --path=$wpFolderPath /%year%/%monthnum%/%day%/%postname%/ --hard"
-#	site description (insert an empty string to clear the value)
-$commands += "$php $wpCli option update --path=$wpFolderPath blogdescription """""
 #	prevent search engines to index the site
 $commands += "$php $wpCli option update --path=$wpFolderPath blog_public 0"
 #	disable comments for new posts
