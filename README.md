@@ -129,6 +129,14 @@ Run script preventing command execution:
 ```
 
 ## Changelog
+### [1.6.1] - 2022-11-17
+This version brings a few changes to improve support with WordPress 6.1.x and WP-CLI 2.7.x.
+
+**Changed**
+- Removed the command to clear the blog description (useless since it's already empty in WordPress 6.1).
+- Removed the theme "Twenty Twenty" from delete list since it is not bundled with WordPress 6.1.
+- Moved `WP_DEBUG` definition back to the `wp-cli.yml` file since WP-CLI 2.7 fixed the duplication issue.
+
 ### [1.6.0] - 2022-05-09
 **Added**
 - Added optional parameter to pass a custom site URL. If not specified, "localhost" will be used. **Please note:** extra configuration on the webserver is required for a custom url.
