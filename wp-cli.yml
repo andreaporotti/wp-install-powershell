@@ -20,6 +20,7 @@ config create:
         define( 'WP_DEBUG_LOG', true );
         define( 'WP_DEBUG_DISPLAY', true );
         define( 'SCRIPT_DEBUG', true );
+        define( 'WP_ENVIRONMENT_TYPE', 'development' );
 
 # The plugins that will be installed and activated.
 # Search the plugins in the WP Plugins Directory and look for the name at the end of the url (after "https://wordpress.org/plugins/").
