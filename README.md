@@ -12,7 +12,7 @@ The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating 
 - **PowerShell** configured to allow scripts execution (check [Execution Policy](http://go.microsoft.com/fwlink/?LinkID=135170))
 - **local Apache+MySQL/MariaDB+PHP environment** (tested on [Laragon](https://laragon.org))
 - **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
-- **WordPress** (tested up to version 6.1.1)
+- **WordPress** (tested up to version 6.2)
 - **WP-CLI** (tested up to version 2.7.1)
 - **ensure that your system can run WordPress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
 
@@ -129,6 +129,14 @@ Run script preventing command execution:
 ```
 
 ## Changelog
+### [1.6.2] - 2023-04-05
+Tested with WordPress 6.2.
+
+**Added**
+- Uninstall the "Twenty Twenty Two" theme.
+- Define the "development" environment in `wp-config.php`.
+- Disable pings from and to blogs in the Discussion settings.
+
 ### [1.6.1] - 2022-11-17
 This version brings a few changes to improve support with WordPress 6.1.x and WP-CLI 2.7.x.
 
