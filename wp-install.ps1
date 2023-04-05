@@ -90,6 +90,10 @@ $commands += "$php $wpCli core install --path=$wpFolderPath --url=""$wpUrl"" --t
 $commands += "$php $wpCli rewrite structure --path=$wpFolderPath /%year%/%monthnum%/%day%/%postname%/ --hard"
 #	prevent search engines to index the site
 $commands += "$php $wpCli option update --path=$wpFolderPath blog_public 0"
+#	disable notifications to blogs
+$commands += "$php $wpCli option update --path=$wpFolderPath default_pingback_flag 0"
+#	disable pingback
+$commands += "$php $wpCli option update --path=$wpFolderPath default_ping_status 0"
 #	disable comments for new posts
 $commands += "$php $wpCli option update --path=$wpFolderPath default_comment_status """""
 #	enable comments moderation
