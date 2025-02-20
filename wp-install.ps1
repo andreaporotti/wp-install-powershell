@@ -67,7 +67,7 @@ $wpDbHost 				= "127.0.0.1"
 $wpDbUser 				= "root"
 $wpDbPass 				= ""
 $wpDbPrefix				= "$(Get-RandomString -length 3)_"								# a 3 characters long random string
-$wpDbName 				= "$wpFolderName" 												# for the sake of simplicity, the database will have the same name of the site folder
+$wpDbName 				= "$wpFolderName".Replace("\", "-") 							# for the sake of simplicity, the database will have the same name of the site folder
 # ====== SCRIPT CONFIGURATION END ===============
 
 # init commands list
