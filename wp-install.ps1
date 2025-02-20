@@ -96,6 +96,8 @@ $commands += "$php $wpCli option update --path=$wpFolderPath default_pingback_fl
 $commands += "$php $wpCli option update --path=$wpFolderPath default_ping_status 0"
 #	disable comments for new posts
 $commands += "$php $wpCli option update --path=$wpFolderPath default_comment_status ``""``"""
+#	require user registration to comment
+$commands += "$php $wpCli option update --path=$wpFolderPath comment_registration 1"
 #	enable comments moderation
 $commands += "$php $wpCli option update --path=$wpFolderPath comment_moderation 1"
 #	disable avatars in comments
