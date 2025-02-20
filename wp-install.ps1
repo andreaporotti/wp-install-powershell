@@ -95,7 +95,7 @@ $commands += "$php $wpCli option update --path=$wpFolderPath default_pingback_fl
 #	disable pingback
 $commands += "$php $wpCli option update --path=$wpFolderPath default_ping_status 0"
 #	disable comments for new posts
-$commands += "$php $wpCli option update --path=$wpFolderPath default_comment_status """""
+$commands += "$php $wpCli option update --path=$wpFolderPath default_comment_status ``""``"""
 #	enable comments moderation
 $commands += "$php $wpCli option update --path=$wpFolderPath comment_moderation 1"
 #	disable avatars in comments
@@ -152,7 +152,7 @@ foreach ($command in $commands) {
 
 	# run command if test mode is not enabled
 	if(-Not $testMode) {
-		cmd /c $command
+		Invoke-Expression $command
 	}
 
     ""
