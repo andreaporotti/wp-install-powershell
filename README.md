@@ -10,10 +10,10 @@ The script takes advantage of the [WP-CLI](https://wp-cli.org/) power, creating 
 ## Requirements
 - **Windows OS** (tested on Windows 10)
 - **PowerShell** configured to allow scripts execution (check [Execution Policy](http://go.microsoft.com/fwlink/?LinkID=135170))
-- **local Apache+MySQL/MariaDB+PHP environment** (tested on [Laragon](https://laragon.org))
+- **local Apache+MySQL/MariaDB+PHP environment** (tested on [Laragon](https://laragon.org) and PHP 8.3.16)
 - **the `mysql` command working in PowerShell** (ensure the `bin` folder of MySQL/MariaDB is in the `PATH` environment variable)
-- **WordPress** (tested up to version 6.3)
-- **WP-CLI** (tested up to version 2.8.1)
+- **WordPress** (tested up to version 6.7.2)
+- **WP-CLI** (tested up to version 2.11.0)
 - **ensure that your system can run WordPress ([requirements](https://wordpress.org/download/)) and WP-CLI ([requirements](https://wp-cli.org/#installing))**
 
 ## Installation
@@ -129,6 +129,21 @@ Run script preventing command execution:
 ```
 
 ## Changelog
+### [1.6.3] - 2025-02-20
+Tested with WordPress 6.7.2 + PHP 8.3.16 + WP-CLI 2.11.0.
+
+**Added**
+- Uninstall more default themes.
+- Added command to require user registration for comments.
+
+**Changed**
+- Run commands by `Invoke-Expression` instead of `cmd`.
+- Set permalink structure to "post name".
+
+**Fixed**
+- Prevent database names containing the backslash character.
+- Cleared PHP and web root paths.
+
 ### [1.6.2] - 2023-04-05
 Tested with WordPress 6.2.
 
